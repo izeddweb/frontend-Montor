@@ -45,7 +45,6 @@ class Store {
 }
 
 
-
 //  set function
 input.addEventListener('focus', animateText)
 input.addEventListener('change', Note.clearFields(input))
@@ -63,7 +62,7 @@ function animateText(e) {
         }).join('');
 }
 function validation(event) {
-    event.preventDefault()
+    // event.preventDefault()
     if (input.value === '') {
         event.preventDefault()
         // show msg function to fill the all fields
