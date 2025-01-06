@@ -4,7 +4,6 @@ const input = document.getElementById('input')
 const btnSubmit = document.querySelector('.submit')
 const form = document.getElementById('form')
 const addedNotes = document.querySelector('.added-notes')
-const showMSG = document.querySelector('.show-MSG')
 
 
 class Notes {
@@ -12,7 +11,7 @@ class Notes {
         this.note = note
         this.complited = false
         this.trash = false
-        this.taskNumber = arrayNotes.length + 1
+        this.taskNumber = arrayNotes.length +1
     }
     static createNotes(note) {
         const notes = new Notes(note)
@@ -35,70 +34,50 @@ class Store {
 
 class UI {
     static drawUI(arrayNotes) {
-        UI.clearDivTasks(addedNotes)
         for (const element of arrayNotes) {
             const div = document.createElement('div')
             div.className = 'task'
-            div.innerHTML = `<i class="fas fa-circle"></i><p>${element.note}  </p> <i class="fas fa-trash"></i>`
+            div.innerHTML = `<i class="far fa-circle"></i><p>${element.note}  </p> <i class="fas fa-trash"></i>`
             addedNotes.appendChild(div)
         }
     }
-    static clearDivTasks(addedNotes) {
-        addedNotes.innerHTML = '';
-    }
-    static showMSG() {
-        let message
-        input.value === '' ?
-            message = ` Please enter a value ` :
-            message = ` note added `;
-        showMSG.innerHTML = ` ${message} `
-    }
-
-
-    static deleteMSG() {
-        showMSG.innerHTML = ``
-    }
 }
+
 const arrayNotes = Store.getNotes() || []
 UI.drawUI(arrayNotes)
 
-form.addEventListener('submit', validation)
+form.addEventListener('submit',validation)
 
 function validation(event) {
-
+    
     event.preventDefault()
-    if (input.value === '') {
+    if (input.value == '') {
         event.preventDefault()
-        //Show message
-
-
-        // setTimeout(() => {
-        //     UI.showMSG()
-        //     setTimeout(() => {
-        //         UI.deleteMSG()
-        //     }, 3000);
-        // }, 200);
-        playMSG(input, showMSG)
     } else {
         const textNote = input.value
-        playMSG(input, showMSG)
         Notes.createNotes(textNote)
         Notes.clearField()
         Store.setNotes(arrayNotes)
+        Store.getNotes(arrayNotes)
         UI.drawUI(arrayNotes)
     }
 }
 
 
-function playMSG(input, showMSG) {
-    let message;
-    input.value == '' ? message = ' Fill The Field' : message = ' Note Added Success';
 
-    setTimeout(() => {
-        showMSG.innerHTML = message
-        showMSG.textContent == ' Fill The Field' ? showMSG.style.color = 'red' : showMSG.style.color = 'green';
-        setTimeout(() => {
-            UI.deleteMSG()
-        }, 2000);
-    }, 20);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

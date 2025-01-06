@@ -81,10 +81,37 @@ input[type='submit'] {
     cursor: pointer;
 }
 
+.show-MSG {
+    position: absolute;
+    top: 60px;
+    display: block;
+    height: auto;
+    width: 80%;
+    /* background-color: rgb(239, 7, 7); */
+    opacity: 1;
+    color: rgb(255, 255, 255);
+    height: auto;
+    border-radius: 8px;
+    margin: 50px auto;
+    padding: 5px;
+}
 .added-notes {
     width: 100%;
     background-color: rgb(97, 92, 92);
-    height: 30px;
+    height: auto;
     border-radius: 8px;
     margin: 50px auto;
+    padding: 5px;
+}
+.added-notes .task{
+    padding: 5px;
+    background-color: #fff;
+   display: flex;
+   justify-content: space-between;
+   margin :5px ;
+   border-radius: 5px;
+}
+.fas,
+.far{
+   cursor: pointer;
 }
